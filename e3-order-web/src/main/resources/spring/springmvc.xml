@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://code.alibabatech.com/schema/dubbo
+	       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.e3mall.order.controller" />
+    <mvc:annotation-driven />
+
+    <!--加载配置文件-->
+    <context:property-placeholder location="classpath:conf/resource.properties"/>
+
+
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.e3mall.order.interceptor.LoginIntercepor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <dubbo:application name="e3-portal-web"/>
+    <dubbo:registry protocol="zookeeper"
+                    address="192.168.153.129:2181"/>
+    <!--<dubbo:protocol name="dubbo" port="20880"/>-->
+    <dubbo:reference interface="com.e3mall.cart.service.CartService"
+                     id="cartService"/>
+    <dubbo:reference interface="com.e3mall.sso.service.TokenService"
+                     id="tokenService"/>
+    <dubbo:reference interface="com.e3mall.order.service.OrderService"
+                     id="orderService"/>
+
+</beans>

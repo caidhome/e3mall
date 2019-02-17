@@ -1,0 +1,3 @@
+0:0:0:0:0:0:0:1 - - [29/Nov/2018:13:38:02 +0800] "GET /search.html?keyword=OPPO HTTP/1.1" 200 54770 http-bio-8085-exec-1 1848
+0:0:0:0:0:0:0:1 - - [29/Nov/2018:13:38:05 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8085-exec-3 5
+0:0:0:0:0:0:0:1 - - [29/Nov/2018:13:38:39 +0800] "GET /search.html?keyword=IPhone HTTP/1.1" 200 85755 http-bio-8085-exec-5 226

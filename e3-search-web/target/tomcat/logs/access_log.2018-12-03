@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:17 +0800] "GET /search.html?keyword=%E6%88%B4%E5%B0%94%E7%81%B5%E8%B6%8A16%E7%87%83 HTTP/1.1" 200 85066 http-bio-8085-exec-1 7599
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:29 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8085-exec-3 6
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:42 +0800] "GET /search.html?keyword=%E6%88%B4%E5%B0%94%E7%81%B5%E8%B6%8A16%E7%87%83+14%E8%8B%B1%E5%AF%B8%E8%BD%BB%E8%96%84%E7%AA%84%E8%BE%B9%E6%A1%86%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91%28i5-8265U+8G+256GSSD+MX150+2G%E7%8B%AC%E6%98%BE+%E8%83%8C%E5%85%89%E9%94%AE%E7%9B%98%EF%BC%89%E5%86%B0%E6%B2%B3%E9%93%B6 HTTP/1.1" 200 18817 http-bio-8085-exec-4 999
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:43 +0800] "GET /css/common.css?v=20160713 HTTP/1.1" 200 17458 http-bio-8085-exec-6 123
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:43 +0800] "GET /css/all.css?v=20160713 HTTP/1.1" 200 228462 http-bio-8085-exec-5 137
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:43 +0800] "GET /images/error_img.jpg HTTP/1.1" 200 31143 http-bio-8085-exec-7 213
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:56:43 +0800] "GET /images/indexImg20130307.png?v=1.1 HTTP/1.1" 200 55428 http-bio-8085-exec-9 53
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:57:26 +0800] "GET /search.html?keyword=%E6%88%B4%E5%B0%94%E7%81%B5%E8%B6%8A16%E7%87%83+14%E8%8B%B1%E5%AF%B8%E8%BD%BB%E8%96%84%E7%AA%84%E8%BE%B9%E6%A1%86%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91 HTTP/1.1" 200 87827 http-bio-8085-exec-9 1577
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:57:58 +0800] "GET /search.html?keyword=IPhone HTTP/1.1" 200 85755 http-bio-8085-exec-9 537
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:58:00 +0800] "GET /html/web/_public/_ajaxStaticMenu.html?v20140430 HTTP/1.1" 404 949 http-bio-8085-exec-9 3
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:16:58:04 +0800] "GET /html/web/_public/_ajaxStaticMenu.html?v20140430 HTTP/1.1" 404 949 http-bio-8085-exec-9 3
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:17:13:53 +0800] "GET /search.html?keyword=IPhone HTTP/1.1" 200 85755 http-bio-8085-exec-1 1455
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:17:13:54 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8085-exec-3 6
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:18:01:52 +0800] "GET /search.html?keyword=IPhone HTTP/1.1" 200 85755 http-bio-8085-exec-7 998
+0:0:0:0:0:0:0:1 - - [03/Dec/2018:19:30:04 +0800] "GET /search.html?keyword=IPhone HTTP/1.1" 200 85755 http-bio-8085-exec-10 1863

@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://code.alibabatech.com/schema/dubbo
+	       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.e3mall.protal.controller" />
+    <mvc:annotation-driven />
+
+    <!--加载配置文件-->
+    <context:property-placeholder location="classpath:conf/resource.properties"/>
+
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <dubbo:application name="e3-search-web"/>
+    <dubbo:registry protocol="zookeeper"
+                    address="192.168.153.129:2181"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <dubbo:reference interface="com.e3mall.search.service.SearchService"
+                     id="searchService"/>
+
+</beans>
