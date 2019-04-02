@@ -124,6 +124,36 @@ yum install -y zlib zlib-devel<br>
 7、返回数组。包含组名和图片的路径<br>
 
 ##### （5）Redis服务器<br>
+* Redis的安装
+Redis是c语言开发的。
+安装redis需要c语言的编译环境。如果没有gcc需要在线安装。yum install gcc-c++
+安装步骤：
+第一步：redis的源码包上传到linux系统。
+第二步：解压缩redis。
+第三步：编译。进入redis源码目录。make 
+第四步：安装。make install PREFIX=/usr/local/redis
+PREFIX参数指定redis的安装目录。一般软件安装到/usr目录下
+
+* 连接redis
+ * redis的启动：
+前端启动：在redis的安装目录下直接启动redis-server
+[root@localhost bin]# ./redis-server 
+后台启动：
+把/root/redis-3.0.0/redis.conf复制到/usr/local/redis/bin目录下
+[root@localhost redis-3.0.0]# cp redis.conf /usr/local/redis/bin/
+修改配置文件：
+[root@localhost bin]# ./redis-server redis.conf
+查看redis进程：
+[root@localhost bin]# ps aux|grep redis
+
+* Redis-cli
+[root@localhost bin]# ./redis-cli 
+默认连接localhost运行在6379端口的redis服务。
+[root@localhost bin]# ./redis-cli -h 192.168.25.153 -p 6379
+-h：连接的服务器的地址
+-p：服务的端口号
+
+
 ##### （6）Solr服务器<br>
 ##### （7）ActiveMQ整合spring<br>
 ##### （8）sso注册登录功能实现<br>
