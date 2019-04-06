@@ -1,5 +1,18 @@
-#本系统时一套完整的基于SSM框架的网上商城<br>
-###涉及技术：<br>
+# 本系统时一套完整的基于SSM框架的网上商城<br>
+### 效果展示：<br>
+前台登录：
+![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+
+启动项目准备：
+##### （1）启动zookeeper     [root@localhost bin]# ./zkServer.sh start<br>
+##### （2）启动nginx：进入sbin目录  [root@localhost sbin]# ./nginx <br>
+##### （3）* redis的启动：后台启动：把/root/redis-3.0.0/redis.conf复制到/usr/local/redis/bin目录下<br>
+#####  [root@localhost redis-3.0.0]# cp redis.conf /usr/local/redis/bin/<br>
+##### （4）启动Solr服务器：启动tomcat
+##### （6）启动数据库、图片服务器
+
+
+### 涉及技术：<br>
 ###### （1）Zookeeper（服务中间件dubbo)<br>
 > 发布服务：<br>
 `<!-- 和本地服务一样实现远程服务 -->`<br>
@@ -41,8 +54,8 @@ Zookeeper是java开发的可以运行在windows、linux环境。需要先安装j
 [root@localhost ~]# cp dubbo-admin-2.5.4.war apache-tomcat-7.0.47/webapps/dubbo-admin.war <br>
 2. 启动tomcat<br>
 3. 访问http://192.168.25.167:8080/dubbo-admin/   用户名：root  密码：root<br>
-***如果监控中心和注册中心在同一台服务器上，可以不需要任何配置。***<br>
-***如果不在同一台服务器，需要修改配置文件： /root/apache-tomcat-7.0.47/webapps/dubbo-admin/WEB-INF/dubbo.properties***<br>
+  如果监控中心和注册中心在同一台服务器上，可以不需要任何配置。 br>
+ 如果不在同一台服务器，需要修改配置文件： /root/apache-tomcat-7.0.47/webapps/dubbo-admin/WEB-INF/dubbo.properties <br>
  
 
 ###### （2）分页插件Pagehelper<br>
@@ -127,34 +140,52 @@ yum install -y zlib zlib-devel<br>
 * Redis的安装
 Redis是c语言开发的。
 安装redis需要c语言的编译环境。如果没有gcc需要在线安装。yum install gcc-c++
-安装步骤：
-第一步：redis的源码包上传到linux系统。
-第二步：解压缩redis。
-第三步：编译。进入redis源码目录。make 
-第四步：安装。make install PREFIX=/usr/local/redis
-PREFIX参数指定redis的安装目录。一般软件安装到/usr目录下
+安装步骤：<br>
+第一步：redis的源码包上传<br>到linux系统。<br>
+第二步：解压缩redis。<br>
+第三步：编译。进入redis源码目录。make <br>
+第四步：安装。make install PREFIX=/usr/local/redis<br>
+PREFIX参数指定redis的安装目录。一般软件安装到/usr目录下<br>
 
-* 连接redis
- * redis的启动：
-前端启动：在redis的安装目录下直接启动redis-server
-[root@localhost bin]# ./redis-server 
-后台启动：
-把/root/redis-3.0.0/redis.conf复制到/usr/local/redis/bin目录下
-[root@localhost redis-3.0.0]# cp redis.conf /usr/local/redis/bin/
-修改配置文件：
-[root@localhost bin]# ./redis-server redis.conf
-查看redis进程：
-[root@localhost bin]# ps aux|grep redis
+* 连接redis<br>
+ * redis的启动：<br>
+前端启动：在redis的安装目录下直接启动redis-server<br>
+[root@localhost bin]# ./redis-server <br>
+后台启动：把/root/redis-3.0.0/redis.conf复制到/usr/local/redis/bin目录下<br>
+[root@localhost redis-3.0.0]# cp redis.conf /usr/local/redis/bin/<br>
+修改配置文件：[root@localhost bin]# ./redis-server redis.conf<br>
+查看redis进程：[root@localhost bin]# ps aux|grep redis<br>
 
-* Redis-cli
-[root@localhost bin]# ./redis-cli 
-默认连接localhost运行在6379端口的redis服务。
-[root@localhost bin]# ./redis-cli -h 192.168.25.153 -p 6379
--h：连接的服务器的地址
--p：服务的端口号
+* Redis-cli<br>
+[root@localhost bin]# ./redis-cli <br>
+默认连接localhost运行在6379端口的redis服务。<br>
+[root@localhost bin]# ./redis-cli -h 192.168.25.153 -p 6379<br>
+-h：连接的服务器的地址<br>
+-p：服务的端口号<br>
 
 
 ##### （6）Solr服务器<br>
+####### 搭建步骤<br>
+ * 第一步：把solr 的压缩包上传到Linux系统<br>
+ * 第二步：解压solr。<br>
+ * 第三步：安装Tomcat，解压缩即可。<br>
+ * 第四步：把solr部署到Tomcat下。<br><br>
+ * 第五步：解压缩war包。启动Tomcat解压。<br>
+ * 第六步：把/root/solr-4.10.3/example/lib/ext目录下的所有的jar包，添加到solr工程中。<br>
+ [root@localhost ext]# pwd<br>
+ /root/solr-4.10.3/example/lib/ext<br>
+ [root@localhost ext]# cp * /usr/local/solr/tomcat/webapps/solr/WEB-INF/lib/<br>
+ * 第七步：创建一个solrhome。/example/solr目录就是一个solrhome。复制此目录到/usr/local/solr/solrhome<br>
+ [root@localhost example]# cp -r solr /usr/local/solr/solrhome<br>
+ * 第八步：关联solr及solrhome。需要修改solr工程的web.xml文件。<br>
+ * 第九步：启动Tomcat: http://192.168.25.154:8080/solr/ 和 windows 下的配置完全一样。
+<br>
 ##### （7）ActiveMQ整合spring<br>
+####### Activemq整合spring<br>
+* 第一步：引用相关的jar包。<br>
+* 第二步：配置Activemq整合spring。配置ConnectionFactory<br>
+* 第三步：配置生产者。 使用JMSTemplate对象。发送消息。<br>
+* 第四步：在spring容器中配置Destination。<br>
+
 ##### （8）sso注册登录功能实现<br>
 ##### （9）Ajax跨域请求（jsonp）<br>
